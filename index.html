@@ -9,13 +9,16 @@
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- 웹글꼴 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
     <!-- 디자인 -->
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/reset.css"><!-- reset 먼저작성 -->
+    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
+    <link rel="stylesheet" href="./styles/study.css">
 </head>
 <body>
     <div id="wrap">
         <header>
-            <!-- 1행 -->
+            <!-- 1행(로고,검색,메뉴) -->
             <div class="top">
                 <h1><a href="#">To Do</a></h1>
                 <div class="search_menu">
@@ -23,13 +26,40 @@
                     <a href="#" class="all_menu"><img src="./images/all_menu.svg" alt="전체메뉴"></a>
                 </div><!-- e:.search_menu -->
             </div><!-- e:.top -->
-            <!-- 2행 -->
+            <!-- 2행(전체,오늘) -->
             <nav>
                 <a href="#" class="all active">All<span class="num">(3)</span></a>
                 <a href="#" class="today">Today<span class="num">(0)</span></a>
             </nav>
         </header>
-        <main></main>
+        <main>
+            <!-- 1. 오늘할일 목록 리스트 -->
+            <ul class="list_wrap">
+                <li class="to_do_list">
+                    <a href="#" class="date">06.24</a>
+                    <a href="#" class="list">매일 책 15분 읽기 목표</a>
+                </li>
+                <li class="to_do_list">
+                    <a href="#" class="date">06.24</a>
+                    <a href="#" class="list">청소하기</a>
+                </li>
+                <li class="to_do_list">
+                    <a href="#" class="date">06.24</a>
+                    <a href="#" class="list">운동하기</a>
+                </li>
+                <li class="to_do_list">
+                    <a href="#" class="date">06.24</a>
+                    <a href="#" class="list">복습하기</a>
+                </li>
+            </ul>
+            <!-- 2. 목록 생성 버튼 --> 
+            <a href="#" class="write_popup_btn"><img src="./images/write_btn.svg" alt="할일 리스트 쓰기"></a>
+            <!-- 3. 목록 입력 창 -->                 
+            <div class="write_popup">
+                <p class="info">add a new tast</p>
+                <a href="#" class="write_btn"><img src="./images/list_btn.svg" alt="할일 등록하기"></a>
+            </div>
+        </main>
     </div><!-- e:#wrap -->
 </body>
 </html>
