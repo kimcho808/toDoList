@@ -31,7 +31,11 @@
     border-bottom:1px solid #000;
     margin-bottom:46px;
 }
-#wrap > header > .top {}
+#wrap > header > .top {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+}
 #wrap > header > .top > h1 {}
 #wrap > header > .top > h1 > a {/* 글자꾸미기는 글자에 가장 가까운 선택자에 작성 */
     font-size:1.125em;
@@ -69,3 +73,51 @@
 #wrap > header > nav > .active > .num {
     font-weight:700; color:#000;
 }
+/* ====================================================== 1. 오늘할일 목록 리스트 */
+#wrap > main {}
+#wrap > main > .list_wrap {
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    /* 실제 웹&앱 서비스를 이용하는 사용자가 작성하는 내용은 항상 부모의 마지막 자식 위치로 삽입된다. 개발자가 '반전' 설정을 하지 않으면 무조건 아래로 쌓인다는 뜻. 내용이 많을 수록 점점 보기 불편해지는 상황이 생기므로 축 반전을 통해 사용자가 작성한 마지막 글이 '첫글'이 되도록 프로그래밍을 작성해야한다. */
+}
+#wrap > main > .list_wrap > li {
+    display: flex;
+    /* display: flex; 외에 나머지 속성은 순서 상관 없음. */
+    flex-flow:row nowrap;/* 메인축(수평) 줄바꿈(X) */
+    gap: 16px;/* 2개 이상의 자식 사이 바깥쪽 여백(간격) 적용(margin효과 동일) flex없이 gap을 쓰면 안됨*/
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#wrap > main > .list_wrap > li > * {
+    letter-spacing: -0.02em;
+    /* 글자크기 16, 글꼴('pretendard', 'sans-sarif), 행간 100% reset 기본값 생략 */
+}
+#wrap > main > .list_wrap > li > .date {
+    font-weight: 600;
+}
+#wrap > main > .list_wrap > li > .list {}
+/* ====================================================== 3. 목록 압력 창 */
+#wrap > main > .write_popup {
+    display: flex;
+    width: 371px; height: 269px;
+    background-color: lightgoldenrodyellow;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    /* align-items: flex-end; 자식 모두에세 주고 싶은 경우 */
+    padding: 20px;
+
+}
+#wrap > main > .write_popup > .info {
+    font-family: 'Noto Sans KR', '맑은 고딕';
+    font-size: 0.875em;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.6);
+}
+#wrap > main > .write_popup > .write_btn {
+    width: 42px;
+    align-self: self-end;/* 자식에게만 개별로 적용하고 싶은 경우 */
+}
+#wrap > main > .write_popup > .write_btn > img {width: 100%;}
