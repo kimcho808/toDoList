@@ -5,10 +5,11 @@
 /* 부모선택자 > 자식선택자 {속성:값;} */
 /* 형제선택자 + 인접형제선택자 {속성:값;} */
 /* 형제선택자 ~ 뒤에모든형제들 {속성:값;} */
+body {background-color: #f5f5f5;}
 #wrap {
     width:402px;/* css 숫자입력 시 단위작성하기 */
     height:874px;
-    background-color:aqua;
+    background-color:#fff;
     /* 안쪽여백, 피그마 오토레이아웃 패딩과 동일 */
     /* 패딩 값 1개 작성 시 - 전체 방향 적용 */
     /* padding:45px; */
@@ -25,6 +26,7 @@
     padding-bottom:45px; */
     /* 테두리 적용 문법 border:두께 모양 색상; */
     /* border-right:1px solid #000; */
+    position: relative;
 }
 /* ====================================================== header 1행 */
 #wrap > header {
@@ -74,9 +76,11 @@
     font-weight:700; color:#000;
 }
 /* ====================================================== 1. 오늘할일 목록 리스트 */
-#wrap > main {}
+#wrap > main {
+    height: 87%;
+    overflow:auto;/* 내용이 넘친 방향만 자동으로 스크롤을 만들고 나머지는 hidden처리 */
+}
 #wrap > main > .list_wrap {
-    background-color: lightgoldenrodyellow;
     display: flex;
     flex-flow: column-reverse nowrap;
     /* 실제 웹&앱 서비스를 이용하는 사용자가 작성하는 내용은 항상 부모의 마지막 자식 위치로 삽입된다. 개발자가 '반전' 설정을 하지 않으면 무조건 아래로 쌓인다는 뜻. 내용이 많을 수록 점점 보기 불편해지는 상황이 생기므로 축 반전을 통해 사용자가 작성한 마지막 글이 '첫글'이 되도록 프로그래밍을 작성해야한다. */
@@ -102,13 +106,15 @@
 /* ====================================================== 3. 목록 압력 창 */
 #wrap > main > .write_popup {
     display: flex;
-    width: 371px; height: 269px;
-    background-color: lightgoldenrodyellow;
+    width: 370px; height: 269px;
+    background-color: #fff;
     flex-flow: column nowrap;
     justify-content: space-between;
     /* align-items: flex-end; 자식 모두에세 주고 싶은 경우 */
     padding: 20px;
-
+    /* 팝업 띄우기 */
+    position: absolute;
+    top:300px; right:16px;
 }
 #wrap > main > .write_popup > .info {
     font-family: 'Noto Sans KR', '맑은 고딕';
@@ -121,3 +127,13 @@
     align-self: self-end;/* 자식에게만 개별로 적용하고 싶은 경우 */
 }
 #wrap > main > .write_popup > .write_btn > img {width: 100%;}
+/* ======================================================= 글쓰기 버튼 */
+#wrap > main > .write_popup_btn {
+    display: block;
+    width:42px; height:42px;
+    /* position:fixed; */
+    /* bottom:45px; right:15px; */
+    position:absolute;
+    bottom:45px; right:15px;
+}
+#wrap > main > .write_popup_btn > img {width: 100%;}
