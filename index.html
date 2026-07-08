@@ -13,6 +13,7 @@
     <!-- 디자인 -->
     <link rel="stylesheet" href="./styles/reset.css"><!-- reset 먼저작성 -->
     <link rel="stylesheet" href="./styles/index.css">
+    <script src="./script.js/index.js" defer></script>
     <!-- <link rel="stylesheet" href="./styles/study.css"> -->
 </head>
 <body>
@@ -129,12 +130,13 @@
                 </li>
             </ul>
             <!-- 2. 목록 생성 버튼 --> 
-            <a href="#" class="write_popup_btn"><img src="./images/write_btn.svg" alt="할일 리스트 쓰기"></a>
+            <button class="write_popup_btn" onclick="writeShow()"><img src="./images/write_btn.svg" alt="할일 리스트 쓰기"></button>
             <!-- 3. 목록 입력 창 -->                 
             <div class="write_popup">
-                <p class="info">add a new tast</p>
-                <a href="#" class="write_btn"><img src="./images/list_btn.svg" alt="할일 등록하기"></a>
+                <input type="text" class="info" placeholder="add a new tast">
+                <button class="write_btn"><img src="./images/list_btn.svg" alt="할일 등록하기"></button>
             </div>
+            <div class="popup_bg" onclick="writeHide()"></div>
         </main>
     </div><!-- e:#wrap -->
 </body>
